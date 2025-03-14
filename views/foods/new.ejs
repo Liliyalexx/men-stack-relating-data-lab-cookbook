@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>Add New Item</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Add New Item to Your Pantry</h1>
+  <form action="/users/<%= userId %>/pantry" method="POST">
+    <label for="name">Item Name:</label>
+    <input type="text" name="name" id="name" required />
+    <button type="submit">Add Item</button>
+  </form>
+  <a href="/users/<%= userId %>/pantry">Back to Pantry</a>
+</body>
+</html>

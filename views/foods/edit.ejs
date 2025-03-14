@@ -1,0 +1,21 @@
+<!-- views/foods/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <title>Edit Item</title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit Item</h1>
+  <form action="/users/<%= userId %>/pantry/<%= food._id %>?_method=PUT" method="POST">
+    <label for="name">Item Name:</label>
+    <input type="text" name="name" id="name" value="<%= food.name %>" required />
+    <button type="submit">Update Item</button>
+  </form>
+  <a href="/users/<%= userId %>/pantry">Back to Pantry</a>
+</body>
+</html>
