@@ -3,19 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css" />
-
-  <title>Community</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <title>My Pantry</title>
 </head>
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Explore Our Community</h1>
-  <ul>
-    <% users.forEach((user) => { %>
-      <li>
-        <a href="/users/<%= user._id %>"><%= user.username %></a>
-      </li>
-    <% }) %>
-  </ul>
+  <div class="container">
+    <h1>Welcome to my Pantry</h1>
+    <a href="/users/<%= user._id %>/pantry/new" class="add-new-item">Add New Item</a>
+    <% if (user.pantry.length > 0) { %>
+      <ul class="pantry-list">
+        <% user.pantry.forEach((item) => { %>
+          <li>
+            <%= item.name %>
+            <div>
+              <a href="/users/<%= user._id %>/pantry/<%= item._id %>/edit">Edit</a>
+              <form action="/users/<%= user._id %>/pantry/<%= item._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p class="empty-pantry">There are no items in this pantry.</p>
+    <% } %>
+  </div>
 </body>
 </html>

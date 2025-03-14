@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
-  background-image: url('/images/cooking-background.jpg');
+  background-image: url('/brooke-lark-08bOYnH_r_E-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -57,18 +57,20 @@ body {
 }
 
 /* Button styles */
-.button {
-  background-color: #ff4500; /* Orange-red */
+.button, .nav-button, .auth-button {
+  background-color: #ff4500; /* Same as navbar buttons */
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  text-decoration: none; /* Remove underline */
+  font-size: 16px;
 }
 
-.button:hover {
-  background-color: #ff6347; /* Lighter orange-red */
+.button:hover, .nav-button:hover, .auth-button:hover {
+  background-color: #ff6347; /* Lighter orange-red on hover */
 }
 
 /* Form styles */
@@ -109,11 +111,10 @@ form button:hover {
   background-color: #ff6347;
 }
 
-/* Center the form */
-.form-container {
+/* Auth button styles */
+.auth-buttons {
   display: flex;
+  gap: 20px; /* Space between buttons */
   justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  width: 100%;
+  margin-top: 20px;
 }

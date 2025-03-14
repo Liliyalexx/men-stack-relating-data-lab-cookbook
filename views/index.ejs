@@ -1,19 +1,22 @@
+<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/styles.css" />
-  <title>Home Page</title>
+  <title>CookBook</title>
 </head>
 <body>
-   <!-- <%- include('./partials/_navbar.ejs') %>  -->
-  <% if (user) { %>
-    <h1>Welcome to CookBook, <%= user.username %>!</h1>
-    <p>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
-  <% } %>
+  <%- include('partials/_navbar.ejs') %>
+  <div class="container">
+    <h1>Welcome to CookBook</h1>
+    <% if (!user) { %>
+      <div class="auth-buttons">
+        <a href="/auth/sign-up" class="auth-button">Sign Up</a>
+        <a href="/auth/sign-in" class="auth-button">Sign In</a>
+      </div>
+    <% } %>
+  </div>
 </body>
 </html>

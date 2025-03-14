@@ -42,11 +42,7 @@ app.use('/users', usersController);
 
 // Home Route
 app.get('/', (req, res) => {
-  if (req.session.user) {
-    res.redirect(`/users/${req.session.user._id}/pantry`);
-  } else {
-    res.render('index.ejs');
-  }
+  res.render('index.ejs', { user: req.session.user });
 });
 
 // Start Server
